@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ai-summarizer-backend
+    runtime: node
+    repo: https://github.com/Yashwanth1943/ai-summarizer
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: LLM_PROVIDER
+        value: openrouter
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
